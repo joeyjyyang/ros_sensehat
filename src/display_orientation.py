@@ -5,9 +5,10 @@ from std_msgs.msg import String
 from sense_hat import SenseHat
 
 sense = SenseHat()
-sense.set_imu_config(True, True, True)
 
-def pub_orientation():
+def display_callback(data):
+    rospy.loginfo(rospy.get
+def get_orientation():
     pub = rospy.Publisher('imu_orientation', String, queue_size=10)
     rospy.init_node('imu_read', anonymous=True)
     rate = rospy.Rate(30) 
