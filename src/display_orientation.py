@@ -7,7 +7,7 @@ from sense_hat import SenseHat
 def display_callback(data):
     rospy.loginfo("yaw: %f" % data.yaw)
     
-    if (45 <= data.raw < 135):
+    if (45 <= data.yaw < 135):
         sense.show_letter("E")
     elif (135 <= data.yaw < 225):
         sense.show_letter("S")
