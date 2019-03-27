@@ -4,24 +4,32 @@ import rospy
 from std_msgs.msg import String
 from sense_hat import SenseHat
 
-sense = SenseHat()
+blue = (0, 0, 255)
+yellow = (255, 255, 0)
+red = (255, 0, 0)
+green = (0, 255, 0)
 
 def display_callback(data):
-    rospy.loginfo(rospy.get
-def get_orientation():
-    pub = rospy.Publisher('imu_orientation', String, queue_size=10)
-    rospy.init_node('imu_read', anonymous=True)
-    rate = rospy.Rate(30) 
-    while not rospy.is_shutdown():
-        orientation = sense.get_orientation()
-        yaw = orientation["yaw"]
-        imu_reading = "orientation relative to North (in degrees): %s" % yaw
-        rospy.loginfo(imu_reading)
-        pub.publish(imu_reading)
-        rate.sleep()
+    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+    direction = float(data.data)
+    
+    if (45 <= direction < 135):
+        sense.show_letter("E")
+    elif (135 <= direction < 225):
+        sense.show_letter("S")
+    elif (225 <= direction < 315):
+        sense.show_letter("W")
+    else:
+        sense.show_letter("N")
+
+def sub_orientation():
+    rospy.init_node("display_orientation", anonymous=True)
+    rospy.Subscriber("imu_orientation", String, display_callback)
+    rospy.spin()
 
 if __name__ == '__main__':
-    try:
-        pub_orientation()
-    except rospy.ROSInterruptException:
-        pass
+    sense = SenseHat()
+    sense.clear()
+    sub_orientation()
+    
+
