@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import rospy
-import sys
 from sensehat_driver.msg import IMUOrientation 
 from sense_hat import SenseHat
 
