@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
 import rospy
-#from std_msgs.msg import String
-from sensehat_driver.msg import IMUOrientation #include custom IMU orientation messge 
+import sys
+from sensehat_driver.msg import IMUOrientation 
 from sense_hat import SenseHat
 
-def pub_orientation():
-    pub = rospy.Publisher("imu_orientation", IMUOrientation, queue_size=10)
-    rospy.init_node("imu_read", anonymous=True)
+def pub_imu_data():
+    pub = rospy.Publisher("imu_data", IMUOrientation, queue_size=10)
+    rospy.init_node("sensehat_imu", anonymous=True)
     rate = rospy.Rate(30)
     imu_orientation = IMUOrientation()
 
@@ -23,8 +23,7 @@ def pub_orientation():
 if __name__ == '__main__':
     sense = SenseHat()
     sense.set_imu_config(True, True, True)
-    
     try:
-        pub_orientation()
+        pub_imu_data()
     except rospy.ROSInterruptException:
         pass
