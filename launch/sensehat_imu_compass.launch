@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 <launch>
-	<node name="sensehat_imu" pkg="sensehat_driver" type="sensehat_imu.py" output="screen"/>
-	<node name="sensehat_compass" pkg="sensehat_driver" type="sensehat_compass.py" output="screen"/>
+
+	<arg name="compass_enabled" default="True" />
+	<arg name="gyro_enabled" default="True" />
+	<arg name="accel_enabled" default="True" />
+
+	<node name="sensehat_imu" pkg="sensehat_driver" type="sensehat_imu.py" output="screen" >
+		<param name="compass_enabled" type="bool" value="$(arg compass_enabled)" />
+		<param name="gyro_enabled" type="bool" value="$(arg gyro_enabled)" />
+		<param name="accel_enabled" type="bool" value="$(arg accel_enabled)" />
+	</node>
+
+	<node name="sensehat_compass" pkg="sensehat_driver" type="sensehat_compass.py" output="screen" />
+
 </launch>

@@ -5,7 +5,7 @@ from sensehat_driver.msg import IMUOrientation
 from sense_hat import SenseHat
 
 def compass_callback(data):
-    rospy.loginfo("yaw: %f" % data.yaw)
+    #rospy.loginfo("yaw: %f" % data.yaw)
     
     if (45 <= data.yaw < 135):
         sense.show_letter("E")
@@ -17,11 +17,11 @@ def compass_callback(data):
         sense.show_letter("N")
 
 def sub_imu_data():
-    rospy.init_node("sensehat_compass", anonymous=True)
     rospy.Subscriber("imu_data", IMUOrientation, compass_callback)
     rospy.spin()
 
 if __name__ == '__main__':
+    rospy.init_node("sensehat_compass", anonymous=True) 
     sense = SenseHat()
     sense.clear()
     sub_imu_data()
