@@ -4,6 +4,9 @@ import rospy
 from sensehat_driver.msg import IMUOrientation
 from sense_hat import SenseHat
 
+def heading_correction_handler(req):
+    print("Returning %s" % req.a)
+    
 def compass_callback(data):
     #rospy.loginfo("yaw: %f" % data.yaw)
     
@@ -20,10 +23,17 @@ def sub_imu_data():
     rospy.Subscriber("imu_data", IMUOrientation, compass_callback)
     rospy.spin()
 
+def heading_correction_server():
+    rospy.Service("heading_correction", HeadingCorrection, heading_correction_handler)
+    print("Ready to return heading correction")
+    rospy.spin()
+
 if __name__ == '__main__':
     rospy.init_node("sensehat_compass", anonymous=True) 
     sense = SenseHat()
     sense.clear()
     sub_imu_data()
+    #heading_correction_server()
+
     
 
