@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="calc_temp_diff_server" pkg="sensehat_driver" type="calc_temp_diff_server.py" output="screen" />
+
+</launch>
