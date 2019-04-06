@@ -3,7 +3,7 @@
 import rospy
 from sensehat_driver.msg import IMUOrientation 
 from sense_hat import SenseHat
-#from sensor_msgs.msg import Imu
+from sensor_msgs.msg import Imu
 
 def init_imu():
     compass_enabled = rospy.get_param("~compass_enabled")

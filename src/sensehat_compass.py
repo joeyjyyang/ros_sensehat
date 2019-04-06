@@ -3,6 +3,7 @@
 import rospy
 from sensehat_driver.msg import IMUOrientation
 from sense_hat import SenseHat
+from sensor_msgs.msg import Imu
 
 def heading_correction_handler(req):
     print("Returning %s" % req.a)
