@@ -1,2 +1,8 @@
 *.pyc
 *.tar.gz
+*~
+build/
+devel/
+bin/
+lib/
+
