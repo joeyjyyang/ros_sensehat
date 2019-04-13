@@ -9,4 +9,4 @@ class Quaternion:
         self.quaternion_z = quaternion_z
 
     def log_orientation(self):
-        print("w: {0}, x: {1}, y: {2}, z: {3}".format(self.quaternion_w, self.quaternion_x, self.quaternion_y, self.quaternion_z))
+        print("q_w: {0}, q_x: {1}, q_y: {2}, q_z: {3}".format(self.quaternion_w, self.quaternion_x, self.quaternion_y, self.quaternion_z))

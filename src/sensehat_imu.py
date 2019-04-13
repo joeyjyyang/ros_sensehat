@@ -19,21 +19,25 @@ class SenseHatIMU(SenseHat):
     def euler_to_quaternion(self):
         #euler angles in radians
         self.orientation_euler = self.get_orientation_radians()
-        pitch = self.orientation_euler["pitch"]
-        roll = self.orientation_euler["roll"]
+ 
+        #heading
         yaw = self.orientation_euler["yaw"]
-
+        #attitude
+        pitch = self.orientation_euler["pitch"]
+        #bank
+        roll = self.orientation_euler["roll"]
+        
+        cos_yaw = math.cos(yaw * 0.5)
+        sin_yaw = math.sin(yaw * 0.5)
         cos_pitch = math.cos(pitch * 0.5)
         sin_pitch = math.sin(pitch * 0.5)
         cos_roll = math.cos(roll * 0.5)
         sin_roll = math.sin(roll * 0.5)
-        cos_yaw = math.cos(yaw * 0.5)
-        sin_yaw = math.sin(yaw * 0.5)
-
-        quaternion_w = cos_pitch * cos_roll * cos_yaw + sin_pitch * sin_roll * sin_yaw
-        quaternion_x = cos_pitch * sin_roll * cos_yaw - sin_pitch * cos_roll * sin_yaw
-        quaternion_y = cos_pitch * sin_roll * sin_yaw + sin_pitch * cos_roll * cos_yaw
-        quaternion_z = cos_pitch * cos_roll * sin_yaw - sin_pitch * sin_roll * cos_yaw
+        
+        quaternion_w = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
+        quaternion_x = cos_yaw * cos_pitch * sin_roll - sin_yaw * sin_pitch * cos_roll
+        quaternion_y = sin_yaw * cos_pitch * sin_roll + cos_yaw * sin_pitch * cos_roll 
+        quaternion_z = sin_yaw * cos_pitch * cos_roll - cos_yaw * sin_pitch * sin_roll 
 
         self.orientation_quaternion = Quaternion(quaternion_w, quaternion_x, quaternion_y, quaternion_z)
         
@@ -43,3 +47,4 @@ if __name__ == "__main__":
     imu = SenseHatIMU()
     orientation_quaternion = imu.euler_to_quaternion()
     orientation_quaternion.log_orientation()
+    print(imu.orientation_radians)
