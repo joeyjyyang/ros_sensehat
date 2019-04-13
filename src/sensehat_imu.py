@@ -10,21 +10,23 @@ from sense_hat import SenseHat
 
 class SenseHatIMU(SenseHat): 
 
+    GRAVITY = 9.80665
+
     def __init__(self):
         SenseHat.__init__(self)
 
-        #enable all (3) IMU sensors
+    def euler_to_quaternion(self):
+        #enable all (3) IMU sensors 
         self.set_imu_config(True, True, True)
 
-    def euler_to_quaternion(self):
-        #euler angles in radians
+        #dict of euler angles in radians
         self.orientation_euler = self.get_orientation_radians()
  
-        #heading
+        #heading z-axis
         yaw = self.orientation_euler["yaw"]
-        #attitude
+        #attitude y-axis
         pitch = self.orientation_euler["pitch"]
-        #bank
+        #bank x-axis
         roll = self.orientation_euler["roll"]
         
         cos_yaw = math.cos(yaw * 0.5)
@@ -43,8 +45,31 @@ class SenseHatIMU(SenseHat):
         
         return self.orientation_quaternion
 
+    def angular_velocities(self):
+        #dict of angular velocities in rad/sec
+        self.angular_velocities_rad_sec = self.get_gyroscope_raw()
+       
+        return self.angular_velocities_rad_sec
+
+    def linear_accelerations(self):
+        #dict of linear accelerations in g
+        self.linear_accelerations_g = self.get_accelerometer_raw()
+        #dict of linear accelerations in m/s^2
+        self.linear_accelerations_m_s2 = dict()
+
+        for axis, lin_accel_g in self.linear_accelerations_g.items():
+            self.linear_accelerations_m_s2[axis] = lin_accel_g * SenseHatIMU.GRAVITY
+        
+        return self.linear_accelerations_m_s2
+
 if __name__ == "__main__":
     imu = SenseHatIMU()
     orientation_quaternion = imu.euler_to_quaternion()
-    orientation_quaternion.log_orientation()
-    print(imu.orientation_radians)
+    angular_velocities = imu.angular_velocities()
+    linear_accelerations = imu.linear_accelerations()
+ 
+   
+
+
+
+
