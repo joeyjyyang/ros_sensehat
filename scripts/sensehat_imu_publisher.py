@@ -26,7 +26,7 @@ def pub_imu_data():
         rate.sleep()
 
 if __name__ == '__main__':
-    rospy.init_node("sensehat_imu", anonymous=True)
+    rospy.init_node("sensehat_imu_publisher", anonymous=True)
     sense = SenseHat()
     init_imu()
 

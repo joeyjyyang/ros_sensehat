@@ -25,7 +25,7 @@ def sub_imu_data():
     rospy.spin()
 
 if __name__ == '__main__':
-    rospy.init_node("sensehat_compass", anonymous=True) 
+    rospy.init_node("sensehat_compass_display", anonymous=True) 
     sense = SenseHat()
     sense.clear()
     sub_imu_data()
