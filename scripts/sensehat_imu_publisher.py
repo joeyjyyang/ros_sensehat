@@ -1,36 +1,39 @@
 #!/usr/bin/env python
 
 import rospy
+import sys
+sys.path.insert(0, "../src")
+from sensehat_imu import SenseHatIMU
 from sensehat_driver.msg import IMUOrientation 
-from sense_hat import SenseHat
 from sensor_msgs.msg import Imu
+from geometry_msgs.msg import Quaternion, Vector3
 
-def init_imu():
-    compass_enabled = rospy.get_param("~compass_enabled")
-    gyro_enabled = rospy.get_param("~gyro_enabled")
-    accel_enabled = rospy.get_param("~accel_enabled")
-    sense.set_imu_config(compass_enabled, gyro_enabled, accel_enabled)
+class IMUPublisherNode:
 
-def pub_imu_data():
-    pub = rospy.Publisher("imu_data", IMUOrientation, queue_size=10)
-    rate = rospy.Rate(30)
-    imu_orientation = IMUOrientation()
-    
-    while not rospy.is_shutdown():
-        orientation = sense.get_orientation()
-        imu_orientation.pitch = orientation["pitch"]
-        imu_orientation.roll = orientation["roll"]
-        imu_orientation.yaw = orientation["yaw"]
-        #rospy.loginfo(imu_orientation)
-        pub.publish(imu_orientation)
-        rate.sleep()
+    def __init__(self):
+        pass
+
+    def pub_imu_data(self):
+        pub = rospy.Publisher("imu_data", IMUOrientation, queue_size=10)
+        rate = rospy.Rate(30)
+        imu_orientation = IMUOrientation()
+        
+        while not rospy.is_shutdown():
+            orientation = sense.get_orientation()
+            imu_orientation.pitch = orientation["pitch"]
+            imu_orientation.roll = orientation["roll"]
+            imu_orientation.yaw = orientation["yaw"]
+            #rospy.loginfo(imu_orientation)
+            pub.publish(imu_orientation)
+            rate.sleep()
 
 if __name__ == '__main__':
-    rospy.init_node("sensehat_imu_publisher", anonymous=True)
-    sense = SenseHat()
-    init_imu()
-
+    sensehat_imu = SenseHatIMU()
+    linear_accelerations = sensehat_imu.linear_accelerations()
+    print(linear_accelerations["x"])
+    #rospy.init_node("sensehat_imu_publisher", anonymous=True)
     try:
-        pub_imu_data()
+        pass     
+        #pub_imu_data()
     except rospy.ROSInterruptException:
         pass

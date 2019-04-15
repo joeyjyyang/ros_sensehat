@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 
-#import rospy
 import math
-#from sensehat_driver.msg import IMUOrientation 
-#import sensehat_quaternion
 from sensehat_quaternion import Quaternion
 from sense_hat import SenseHat
-#from sensor_msgs.msg import Imu
 
 class SenseHatIMU(SenseHat): 
 
@@ -62,12 +58,6 @@ class SenseHatIMU(SenseHat):
         
         return self.linear_accelerations_m_s2
 
-if __name__ == "__main__":
-    imu = SenseHatIMU()
-    orientation_quaternion = imu.euler_to_quaternion()
-    angular_velocities = imu.angular_velocities()
-    linear_accelerations = imu.linear_accelerations()
- 
    
 
 
