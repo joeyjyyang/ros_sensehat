@@ -32,31 +32,31 @@ class SenseHatIMU(SenseHat):
         cos_roll = math.cos(roll * 0.5)
         sin_roll = math.sin(roll * 0.5)
         
-        quaternion_w = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
         quaternion_x = cos_yaw * cos_pitch * sin_roll - sin_yaw * sin_pitch * cos_roll
         quaternion_y = sin_yaw * cos_pitch * sin_roll + cos_yaw * sin_pitch * cos_roll 
         quaternion_z = sin_yaw * cos_pitch * cos_roll - cos_yaw * sin_pitch * sin_roll 
+        quaternion_w = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
 
-        self.orientation_quaternion = Quaternion(quaternion_w, quaternion_x, quaternion_y, quaternion_z)
+        self.orientation_quaternion = Quaternion(quaternion_x, quaternion_y, quaternion_z, quaternion_w)
         
         return self.orientation_quaternion
 
-    def angular_velocities(self):
+    def angular_velocity(self):
         #dict of angular velocities in rad/sec
-        self.angular_velocities_rad_sec = self.get_gyroscope_raw()
+        self.angular_velocity_rad_sec = self.get_gyroscope_raw()
        
-        return self.angular_velocities_rad_sec
+        return self.angular_velocity_rad_sec
 
-    def linear_accelerations(self):
+    def linear_acceleration(self):
         #dict of linear accelerations in g
-        self.linear_accelerations_g = self.get_accelerometer_raw()
+        self.linear_acceleration_g = self.get_accelerometer_raw()
         #dict of linear accelerations in m/s^2
-        self.linear_accelerations_m_s2 = dict()
+        self.linear_acceleration_m_s2 = dict()
 
-        for axis, lin_accel_g in self.linear_accelerations_g.items():
-            self.linear_accelerations_m_s2[axis] = lin_accel_g * SenseHatIMU.GRAVITY
+        for axis, lin_accel_g in self.linear_acceleration_g.items():
+            self.linear_acceleration_m_s2[axis] = lin_accel_g * SenseHatIMU.GRAVITY
         
-        return self.linear_accelerations_m_s2
+        return self.linear_acceleration_m_s2
 
    
 
