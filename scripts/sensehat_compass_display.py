@@ -21,7 +21,7 @@ def compass_callback(data):
         sense.show_letter("N")
 
 def sub_imu_data():
-    rospy.Subscriber("imu_data", IMUOrientation, compass_callback)
+    rospy.Subscriber("imu_euler", IMUOrientation, compass_callback)
     rospy.spin()
 
 if __name__ == '__main__':
