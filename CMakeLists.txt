@@ -22,7 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
+catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -199,6 +199,11 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+catkin_install_python(PROGRAMS
+	scripts/sensehat_imu_publisher.py
+	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 add_executable(calc_temp_diff_client src/calc_temp_diff_client.cpp)
 target_link_libraries(calc_temp_diff_client ${catkin_LIBRARIES})

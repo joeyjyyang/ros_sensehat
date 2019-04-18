@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
 import rospy
-import sys
-sys.path.insert(0, "../src")
-from sensehat_imu import SenseHatIMU
+#import sys
+#sys.path.insert(0, "../src")
+
+#import sensehat_driver.sensehat_imu
+from sensehat_driver import sensehat_imu
+
 from sensehat_driver.msg import IMUOrientation 
 from sensor_msgs.msg import Imu
 #from geometry_msgs.msg import Quaternion, Vector3
@@ -11,17 +14,17 @@ from sensor_msgs.msg import Imu
 class SenseHatIMUPublisherNode:
 
     def __init__(self):
-        self.sensehat_imu = SenseHatIMU()
+        self.sensehat_imu = sensehat_imu.SenseHatIMU()
         
-        #self.imu_data_msg = Imu()
+        self.imu_data_msg = Imu()
         self.imu_euler_msg = IMUOrientation() 
         
-        self.pub_imu_data = rospy.Publisher("imu_data", Imu, queue_size=1)
-        #self.pub_imu_euler = rospy.Publisher("imu_euler", IMUOrientation, queue_size=1)
+        #self.pub_imu_data = rospy.Publisher("imu_data", Imu, queue_size=1)
+        self.imu_euler_publisher = rospy.Publisher("imu_euler", IMUOrientation, queue_size=1)
 
     def pub_imu_data(self):
 #        self.orientation_quaternion = self.sensehat_imu.euler_to_quaternion()
-#        self.orientation_euler = self.sensehat_imu.get_orientation_degrees()
+         self.orientation_euler = self.sensehat_imu.get_orientation_degrees()
 #        self.angular_velocity = self.sensehat_imu.angular_velocity()
 #        self.linear_acceleration = self.sensehat_imu.linear_acceleration()
 #
@@ -30,10 +33,10 @@ class SenseHatIMUPublisherNode:
 #        self.imu_data_msg.orientation.z = self.orientation_quaternion.quaternion_z
 #        self.imu_data_msg.orientation.w = self.orientation_quaternion.quaternion_w
 #
-        self.imu_euler_msg.pitch = self.orientation_euler["pitch"]
-        self.imu_euler_msg.roll = self.orientation_euler["roll"]
-        self.imu_euler_msg.yaw = self.orientation_euler["yaw"]
-#
+         self.imu_euler_msg.pitch = self.orientation_euler["pitch"]
+         self.imu_euler_msg.roll = self.orientation_euler["roll"]
+         self.imu_euler_msg.yaw = self.orientation_euler["yaw"]
+
 #        self.imu_data_msg.angular_velocity.x = self.angular_velocity["x"]
 #        self.imu_data_msg.angular_velocity.y = self.angular_velocity["y"]
 #        self.imu_data_msg.angular_velocity.z = self.angular_velocity["z"]
@@ -43,7 +46,7 @@ class SenseHatIMUPublisherNode:
 #        self.imu_data_msg.linear_acceleration.z = self.linear_acceleration["z"]
 #
 #        self.pub_imu_data.publish(self.imu_data_msg)
-#        self.pub_imu_euler.publish(self.imu_euler_msg)
+         self.imu_euler_publisher.publish(self.imu_euler_msg)
 #
 if __name__ == '__main__':
     rospy.loginfo("Publishing Sense Hat IMU data.")
