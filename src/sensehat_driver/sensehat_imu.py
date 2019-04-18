@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import math
-#from sensehat_quaternion import Quaternion
+from sensehat_quaternion import Quaternion
 from sense_hat import SenseHat
 
 class SenseHatIMU(SenseHat): 
@@ -37,14 +37,14 @@ class SenseHatIMU(SenseHat):
         quaternion_z = sin_yaw * cos_pitch * cos_roll - cos_yaw * sin_pitch * sin_roll 
         quaternion_w = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
 
-        #self.orientation_quaternion = Quaternion(quaternion_x, quaternion_y, quaternion_z, quaternion_w)
+        self.orientation_quaternion = Quaternion(quaternion_x, quaternion_y, quaternion_z, quaternion_w)
         
-        self.orientation_quaternion = dict()
+        #self.orientation_quaternion = dict()
 
-        self.orientation_quaternion["x"] = quaternion_x
-        self.orientation_quaternion["y"] = quaternion_y
-        self.orientation_quaternion["z"] = quaternion_z
-        self.orientation_quaternion["w"] = quaternion_w
+        #self.orientation_quaternion["x"] = quaternion_x
+        #self.orientation_quaternion["y"] = quaternion_y
+        #self.orientation_quaternion["z"] = quaternion_z
+        #self.orientation_quaternion["w"] = quaternion_w
 
         return self.orientation_quaternion
 
