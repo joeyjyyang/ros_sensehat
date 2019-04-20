@@ -8,8 +8,8 @@ class SenseHatIMU(SenseHat):
 
     GRAVITY = 9.80665
 
-    def __init__(self):
-        super(SenseHatIMU, self).__init__()
+    #def __init__(self):
+    #    super(SenseHatIMU, self).__init__()
 
     def euler_to_quaternion(self):
         #enable all (3) IMU sensors 
@@ -39,13 +39,6 @@ class SenseHatIMU(SenseHat):
 
         self.orientation_quaternion = Quaternion(quaternion_x, quaternion_y, quaternion_z, quaternion_w)
         
-        #self.orientation_quaternion = dict()
-
-        #self.orientation_quaternion["x"] = quaternion_x
-        #self.orientation_quaternion["y"] = quaternion_y
-        #self.orientation_quaternion["z"] = quaternion_z
-        #self.orientation_quaternion["w"] = quaternion_w
-
         return self.orientation_quaternion
 
     def angular_velocity(self):

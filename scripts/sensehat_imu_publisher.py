@@ -4,7 +4,6 @@ import rospy
 from sensehat_driver import sensehat_imu
 from sensehat_driver.msg import IMUOrientation 
 from sensor_msgs.msg import Imu
-#from geometry_msgs.msg import Quaternion, Vector3
 
 class SenseHatIMUPublisherNode:
 
@@ -23,11 +22,6 @@ class SenseHatIMUPublisherNode:
          self.angular_velocity = self.sensehat_imu.angular_velocity()
          self.linear_acceleration = self.sensehat_imu.linear_acceleration()
 
-         #self.imu_data_msg.orientation.x = self.orientation_quaternion.quaternion_x
-         #self.imu_data_msg.orientation.y = self.orientation_quaternion.quaternion_y
-         #self.imu_data_msg.orientation.z = self.orientation_quaternion.quaternion_z
-         #self.imu_data_msg.orientation.w = self.orientation_quaternion.quaternion_w
-         
          self.imu_data_msg.orientation.x = self.orientation_quaternion.quaternion_x
          self.imu_data_msg.orientation.y = self.orientation_quaternion.quaternion_y
          self.imu_data_msg.orientation.z = self.orientation_quaternion.quaternion_z
