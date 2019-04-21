@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+import rospy
+from sensehat_driver import sensehat_imu_publisher
+
+if __name__ == '__main__':
+    
+    rospy.init_node("sensehat_imu_node", anonymous=True)
+    
+    sensehat_imu_publisher = sensehat_imu_publisher.SenseHatIMUPublisher()
+    
+    try:
+        rate = rospy.Rate(30)    
+
+        while not rospy.is_shutdown():
+            sensehat_imu_publisher.pub_imu_data()
+            rate.sleep()         
+    except rospy.ROSInterruptException:
+        pass

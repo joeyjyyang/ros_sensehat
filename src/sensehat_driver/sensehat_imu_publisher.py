@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 import rospy
-from sensehat_driver import sensehat_imu
+from sensehat_imu import SenseHatIMU
 from sensehat_driver.msg import IMUOrientation 
 from sensor_msgs.msg import Imu
 
-class SenseHatIMUPublisherNode:
+class SenseHatIMUPublisher:
 
     def __init__(self):
-        self.sensehat_imu = sensehat_imu.SenseHatIMU()
+        self.sensehat_imu = SenseHatIMU()
         
         self.imu_data_msg = Imu()
         self.imu_euler_msg = IMUOrientation() 
@@ -41,19 +41,3 @@ class SenseHatIMUPublisherNode:
 
          self.imu_data_publisher.publish(self.imu_data_msg)
          self.imu_euler_publisher.publish(self.imu_euler_msg)
-
-if __name__ == '__main__':
-    rospy.loginfo("Publishing Sense Hat IMU data.")
-
-    rospy.init_node("sensehat_imu_publisher", anonymous=True)
-    
-    sensehat_imu_publisher = SenseHatIMUPublisherNode()
-
-    try:
-        rate = rospy.Rate(30)    
-        
-        while not rospy.is_shutdown():
-            sensehat_imu_publisher.pub_imu_data()
-            rate.sleep()       
-    except rospy.ROSInterruptException:
-        pass

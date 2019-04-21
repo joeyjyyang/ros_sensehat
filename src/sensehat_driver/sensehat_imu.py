@@ -8,8 +8,8 @@ class SenseHatIMU(SenseHat):
 
     GRAVITY = 9.80665
 
-    #def __init__(self):
-    #    super(SenseHatIMU, self).__init__()
+    def __init__(self):
+        super(SenseHatIMU, self).__init__()
 
     def euler_to_quaternion(self):
         #enable all (3) IMU sensors 
