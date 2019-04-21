@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-	<node name="sensehat_imu_publisher" pkg="sensehat_driver" type="sensehat_imu_publisher.py" output="screen" />
+	<node name="sensehat_imu_publisher" pkg="sensehat_driver" type="sensehat_imu_publisher" output="screen" />
 
-	<node name="sensehat_compass_display" pkg="sensehat_driver" type="sensehat_compass_display.py" output="screen" />
+	<node name="sensehat_compass_display" pkg="sensehat_driver" type="sensehat_compass_display" output="screen" />
 
 </launch>
