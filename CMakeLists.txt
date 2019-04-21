@@ -162,7 +162,7 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
-   scripts/sensehat_imu_node
+   scripts/sensehat_imu_rospy_node
    scripts/sensehat_compass_display
    scripts/calc_temp_diff_server
    scripts/goal_orientation_client
