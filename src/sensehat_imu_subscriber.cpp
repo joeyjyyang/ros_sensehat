@@ -1,9 +1,13 @@
 #include "sensehat_imu_subscriber.h"
 
-sensehat_imu_subscriber::sensehat_imu_subscriber() {
+#include <iostream>
 
+sensehat_imu_subscriber::sensehat_imu_subscriber() {
+	std::cout << "created object" << std::endl;
 }
 
 sensehat_imu_subscriber::~sensehat_imu_subscriber() {
 
 }
+
+
