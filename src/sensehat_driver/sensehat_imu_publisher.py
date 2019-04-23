@@ -13,8 +13,8 @@ class SenseHatIMUPublisher:
         self.imu_data_msg = Imu()
         self.imu_euler_msg = IMUOrientation() 
         
-        self.imu_data_publisher = rospy.Publisher("imu_data", Imu, queue_size=1)
-        self.imu_euler_publisher = rospy.Publisher("imu_euler", IMUOrientation, queue_size=1)
+        self.imu_data_publisher = rospy.Publisher("imu_data", Imu, queue_size=5)
+        self.imu_euler_publisher = rospy.Publisher("imu_euler", IMUOrientation, queue_size=5)
 
     def pub_imu_data(self):
          self.orientation_quaternion = self.sensehat_imu.euler_to_quaternion()
