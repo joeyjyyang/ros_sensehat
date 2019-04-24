@@ -1,4 +1,4 @@
-#include "sensehat_imu_subscriber.h"
+#include "sensehat_driver/sensehat_imu_subscriber.h"
 
 SenseHatIMUSubscriber::SenseHatIMUSubscriber(const ros::NodeHandle &p_nh) : m_nh(p_nh) {
 	//std::cout << "created object" << std::endl;
@@ -7,11 +7,11 @@ SenseHatIMUSubscriber::SenseHatIMUSubscriber(const ros::NodeHandle &p_nh) : m_nh
 
 void SenseHatIMUSubscriber::IMUCallback(const sensor_msgs::Imu::ConstPtr &imu_msg) {
 
-	ROS_INFO("Heard quaternion w: [%s]", imu_msg->orientation.w.c_str());
+	ROS_INFO("Heard quaternion w: [%f]", imu_msg->orientation.w);
 }
 
-SenseHatIMUSubscriber::~SenseHatImuSubscriber() {
+/*SenseHatIMUSubscriber::~SenseHatImuSubscriber() {
 
-}
+}*/ 
 
 
