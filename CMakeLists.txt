@@ -126,8 +126,7 @@ include_directories(
 add_library(${PROJECT_NAME}
 #src/${PROJECT_NAME}/sensehat_imu_subscriber.cpp
 #src/${PROJECT_NAME}/sensehat_imu_roscpp_node.cpp
-   src/sensehat_imu_subscriber.cpp
-   src/sensehat_imu_roscpp_node.cpp
+	src/sensehat_imu_subscriber.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -161,7 +160,6 @@ add_dependencies(calc_temp_diff_client sensehat_driver_gencpp)
 
 add_executable(sensehat_imu_roscpp_node src/sensehat_imu_roscpp_node.cpp src/sensehat_imu_subscriber.cpp)
 target_link_libraries(sensehat_imu_roscpp_node ${catkin_LIBRARIES})
-#add_dependencies(sensehat_imu_roscpp_node sensehat_driver_gencpp)
 
 #############
 ## Install ##
