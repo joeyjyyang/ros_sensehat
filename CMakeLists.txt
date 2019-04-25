@@ -159,7 +159,7 @@ add_executable(calc_temp_diff_client src/calc_temp_diff_client.cpp)
 target_link_libraries(calc_temp_diff_client ${catkin_LIBRARIES})
 add_dependencies(calc_temp_diff_client sensehat_driver_gencpp)
 
-add_executable(sensehat_imu_roscpp_node src/sensehat_imu_roscpp_node.cpp)
+add_executable(sensehat_imu_roscpp_node src/sensehat_imu_roscpp_node.cpp src/sensehat_imu_subscriber.cpp)
 target_link_libraries(sensehat_imu_roscpp_node ${catkin_LIBRARIES})
 #add_dependencies(sensehat_imu_roscpp_node sensehat_driver_gencpp)
 

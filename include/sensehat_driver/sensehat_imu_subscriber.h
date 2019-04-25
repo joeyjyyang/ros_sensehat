@@ -1,4 +1,4 @@
-#ifndef SENSEHAT_IMU_SUBSCRIBER_h
+#ifndef SENSEHAT_IMU_SUBSCRIBER_H
 #define SENSEHAT_IMU_SUBSCRIBER_H
 
 #include <iostream>
@@ -13,7 +13,7 @@ class SenseHatIMUSubscriber {
 		
 		void IMUCallback(const sensor_msgs::Imu::ConstPtr &imu_msg);
 
-		//~SenseHatIMUSubscriber();
+		~SenseHatIMUSubscriber();
 
 	private:
 		ros::Subscriber m_sensehat_imu_subscriber;
