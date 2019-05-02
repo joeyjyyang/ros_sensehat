@@ -7,17 +7,21 @@
 #include "ros/ros.h"
 #include "sensor_msgs/Imu.h"
 
-class SenseHatIMUSubscriber {
-	public:
-		SenseHatIMUSubscriber(const ros::NodeHandle &p_nh);
-		
-		void IMUCallback(const sensor_msgs::Imu::ConstPtr &imu_msg);
+namespace sensehat_imu 
+{
+class SenseHatIMUSubscriber 
+{
+public:
+	SenseHatIMUSubscriber(const ros::NodeHandle &p_nh);
+	
+	void IMUCallback(const sensor_msgs::Imu::ConstPtr &imu_msg);
 
-		~SenseHatIMUSubscriber();
+	~SenseHatIMUSubscriber();
 
-	private:
-		ros::Subscriber m_sensehat_imu_subscriber;
-		ros::NodeHandle m_nh;
+private:
+	ros::Subscriber m_sensehat_imu_subscriber;
+	ros::NodeHandle m_nh;
 };
+}
 
 #endif // SENSEHAT_IMU_SUBSCRIBE_H
