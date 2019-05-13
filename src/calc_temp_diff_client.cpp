@@ -4,11 +4,11 @@
 
 int main(int argc, char* argv[]) {
 	ros::init(argc, argv, "calc_temp_diff_client");
-	
-	/*if (argc != 1) {
-		ROS_INFO("Usage: temp_diff_client input_temp");
+
+	if (argc != 2) {
+		ROS_INFO("Usage: rosrun sensehat_driver calc_temp_diff_client input_temp ");
 		return 1;
-	}*/
+	};
 
 	ros::NodeHandle n;
 	ros::ServiceClient client = n.serviceClient<sensehat_driver::TemperatureDifference>("calc_temp_diff");
