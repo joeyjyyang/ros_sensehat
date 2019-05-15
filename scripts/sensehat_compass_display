@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from sensehat_driver.msg import IMUOrientation
+from sensehat_driver.msg import IMUOrientationEuler
 from sense_hat import SenseHat
 from sensor_msgs.msg import Imu
 
@@ -21,7 +21,7 @@ def compass_callback(data):
         sense.show_letter("N")
 
 def sub_imu_data():
-    rospy.Subscriber("imu_euler", IMUOrientation, compass_callback)
+    rospy.Subscriber("imu_orientation_euler", IMUOrientationEuler, compass_callback)
     rospy.spin()
 
 if __name__ == '__main__':

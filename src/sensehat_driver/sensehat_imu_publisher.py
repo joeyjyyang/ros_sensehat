@@ -2,7 +2,7 @@
 
 import rospy
 from sensehat_imu import SenseHatIMU
-from sensehat_driver.msg import IMUOrientation 
+from sensehat_driver.msg import IMUOrientationEuler 
 from sensor_msgs.msg import Imu
 
 class SenseHatIMUPublisher:
@@ -11,10 +11,10 @@ class SenseHatIMUPublisher:
         self.sensehat_imu = SenseHatIMU()
         
         self.imu_data_msg = Imu()
-        self.imu_euler_msg = IMUOrientation() 
+        self.imu_euler_msg = IMUOrientationEuler() 
         
-        self.imu_data_publisher = rospy.Publisher("imu_data", Imu, queue_size=5)
-        self.imu_euler_publisher = rospy.Publisher("imu_euler", IMUOrientation, queue_size=5)
+        self.imu_data_publisher = rospy.Publisher("imu_orientation_quaternion", Imu, queue_size=5)
+        self.imu_euler_publisher = rospy.Publisher("imu_orientation_euler", IMUOrientationEuler, queue_size=5)
 
     def pub_imu_data(self):
          self.orientation_quaternion = self.sensehat_imu.euler_to_quaternion()

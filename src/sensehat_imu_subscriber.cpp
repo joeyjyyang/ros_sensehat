@@ -2,7 +2,7 @@
 
 sensehat_imu::SenseHatIMUSubscriber::SenseHatIMUSubscriber(const ros::NodeHandle& nh) : nh_(nh) 
 {
-	sensehat_imu_subscriber_ = nh_.subscribe("imu_data", 5, &SenseHatIMUSubscriber::IMUCallback, this);
+	sensehat_imu_subscriber_ = nh_.subscribe("imu_orientation_quaternion", 5, &SenseHatIMUSubscriber::IMUCallback, this);
 }
 
 void sensehat_imu::SenseHatIMUSubscriber::IMUCallback(const sensor_msgs::Imu::ConstPtr& imu_msg) 
