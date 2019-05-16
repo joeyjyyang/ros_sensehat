@@ -11,7 +11,7 @@ class SenseHatIMU(SenseHat):
     def __init__(self):
         super(SenseHatIMU, self).__init__()
 
-    def euler_to_quaternion(self):
+    def get_orientation_quaternion(self):
         #enable all (3) IMU sensors 
         self.set_imu_config(True, True, True)
 
@@ -41,25 +41,42 @@ class SenseHatIMU(SenseHat):
         
         return self.orientation_quaternion
 
-    def angular_velocity(self):
+    def get_angular_velocity(self):
         #dict of angular velocities in rad/sec
-        self.angular_velocity_rad_sec = self.get_gyroscope_raw()
-       
-        return self.angular_velocity_rad_sec
+        self.angular_velocity = self.get_gyroscope_raw()
 
-    def linear_acceleration(self):
+        return self.angular_velocity
+
+    def get_linear_acceleration(self):
         #dict of linear accelerations in g
         self.linear_acceleration_g = self.get_accelerometer_raw()
         #dict of linear accelerations in m/s^2
-        self.linear_acceleration_m_s2 = dict()
+        self.linear_acceleration = dict()
 
         for axis, lin_accel_g in self.linear_acceleration_g.items():
-            self.linear_acceleration_m_s2[axis] = lin_accel_g * SenseHatIMU.GRAVITY
+            self.linear_acceleration[axis] = lin_accel_g * SenseHatIMU.GRAVITY
         
-        return self.linear_acceleration_m_s2
+        return self.linear_acceleration
 
-   
+    def get_relative_humidity(self):
+        self.relative_humidity = self.get_humidity() 
 
+        return self.relative_humidity
 
+    def get_temperature_celsius(self):
+        #self.temperature_celsius = self.get_temperature_from_pressure()
+        self.temperature_celsius = self.get_temperature_from_humidity()
 
+        return self.temperature_celsius
+
+    def get_magnetic_field(self):
+        #dict of magnetic field vectors in microteslas
+        self.magnetic_field = self.get_compass_raw() 
+
+        return self.magnetic_field
+
+    def get_air_pressure(self):
+        self.air_pressure = self.get_pressure() #millibars
+
+        return self.air_pressure
 
