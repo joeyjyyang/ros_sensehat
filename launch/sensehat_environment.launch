@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="sensehat_environment_publisher_node" pkg="sensehat_driver" type="sensehat_environment_publisher_node" output="screen" />
+
+</launch>

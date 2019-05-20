@@ -154,12 +154,12 @@ add_library(${PROJECT_NAME}
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(calc_temp_diff_client src/calc_temp_diff_client.cpp)
-target_link_libraries(calc_temp_diff_client ${catkin_LIBRARIES})
-add_dependencies(calc_temp_diff_client sensehat_driver_gencpp)
+add_executable(sensehat_temp_diff_client src/sensehat_temp_diff_client.cpp)
+target_link_libraries(sensehat_temp_diff_client ${catkin_LIBRARIES})
+add_dependencies(sensehat_temp_diff_client sensehat_driver_gencpp)
 
-add_executable(sensehat_imu_roscpp_node src/sensehat_imu_roscpp_node.cpp src/sensehat_imu_subscriber.cpp)
-target_link_libraries(sensehat_imu_roscpp_node ${catkin_LIBRARIES})
+add_executable(sensehat_imu_subscriber_node src/sensehat_imu_subscriber_node.cpp src/sensehat_imu_subscriber.cpp)
+target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -171,10 +171,9 @@ target_link_libraries(sensehat_imu_roscpp_node ${catkin_LIBRARIES})
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
-   scripts/sensehat_imu_rospy_node
+   scripts/sensehat_imu_publisher_node
    scripts/sensehat_compass_display
-   scripts/calc_temp_diff_server
-   scripts/goal_orientation_client
+   scripts/sensheat_temp_diff_server
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
