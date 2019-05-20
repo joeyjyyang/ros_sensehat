@@ -20,10 +20,10 @@ class SenseHatIMUPublisher:
     
     def publish_imu_data(self):
         #retrieve sensehat data
-        self.orientation_euler = self.sensehat_imu.get_orientation_degrees()
-        self.orientation_quaternion = self.sensehat_imu.get_orientation_quaternion()
-        self.angular_velocity = self.sensehat_imu.get_angular_velocity()
-        self.linear_acceleration = self.sensehat_imu.get_linear_acceleration()
+        self.orientation_euler = self.sensehat_api.get_orientation_degrees()
+        self.orientation_quaternion = self.sensehat_api.get_orientation_quaternion()
+        self.angular_velocity = self.sensehat_api.get_angular_velocity()
+        self.linear_acceleration = self.sensehat_api.get_linear_acceleration()
 
         #populate messages
         self.imu_orientation_euler_msg.pitch = self.orientation_euler["pitch"]

@@ -54,7 +54,7 @@ class SenseHatAPI(SenseHat):
         self.linear_acceleration = dict()
 
         for axis, lin_accel_g in self.linear_acceleration_g.items():
-            self.linear_acceleration[axis] = lin_accel_g * SenseHatIMU.GRAVITY
+            self.linear_acceleration[axis] = lin_accel_g * SenseHatAPI.GRAVITY
         
         return self.linear_acceleration
 

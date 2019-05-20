@@ -23,10 +23,10 @@ class SenseHatEnvironmentPublisher:
     
     def publish_environment_data(self):
         #retrieve sensehat data
-        self.magnetic_field = self.sensehat_imu.get_magnetic_field()
-        self.temperature_celsius = self.sensehat_imu.get_temperature_celsius()
-        self.air_pressure = self.sensehat_imu.get_air_pressure()
-        self.relative_humidity = self.sensehat_imu.get_relative_humidity()
+        self.magnetic_field = self.sensehat_api.get_magnetic_field()
+        self.temperature_celsius = self.sensehat_api.get_temperature_celsius()
+        self.air_pressure = self.sensehat_api.get_air_pressure()
+        self.relative_humidity = self.sensehat_api.get_relative_humidity()
 
         #populate messages
         self.magnetic_field_msg.magnetic_field.x = self.magnetic_field["x"]
