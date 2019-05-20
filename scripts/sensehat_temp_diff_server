@@ -10,12 +10,11 @@ def handle_calc_temp_diff(request):
     return TemperatureDifferenceResponse(sense_temp - request.input_temp)
 
 def calc_temp_diff_server():
-    rospy.init_node("calc_temp_diff_server")
+    rospy.init_node("sensehat_temp_diff_server")
     service = rospy.Service("calc_temp_diff", TemperatureDifference, handle_calc_temp_diff)
-    rospy.loginfo("Starting ROS service: sensehat_driver calc_temp_diff_server")
+    rospy.loginfo("Starting ROS service: sensehat_driver calc_temp_diff")
     rospy.spin()
 
 if __name__ == "__main__":
     sense = SenseHat()
-    rospy.loginfo("Starting ROS service: sensehat_driver calc_temp_diff_server")
     calc_temp_diff_server()

@@ -4,12 +4,12 @@ import math
 from sensehat_quaternion import Quaternion
 from sense_hat import SenseHat
 
-class SenseHatIMU(SenseHat): 
+class SenseHatAPI(SenseHat): 
 
     GRAVITY = 9.80665
 
     def __init__(self):
-        super(SenseHatIMU, self).__init__()
+        super(SenseHatAPI, self).__init__()
 
     def get_orientation_quaternion(self):
         #enable all (3) IMU sensors 
