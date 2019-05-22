@@ -4,7 +4,10 @@
 ## Installation
 ## Usage
 ### Nodes
+- IMU sensors
+- Environment sensors
+- Compass (heading) display
 ### Services
 ### Launch Files
 ## References
-- The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/)
+- The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
