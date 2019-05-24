@@ -64,10 +64,15 @@ class SenseHatAPI(SenseHat):
         return self.relative_humidity
 
     def get_temperature_celsius(self):
-        #self.temperature_celsius = self.get_temperature_from_pressure()
-        self.temperature_celsius = self.get_temperature_from_humidity()
+        self.temperature_celsius = self.get_temperature_from_humidity() #self.get_temperature_from_pressure()
+        
+        return self.temperature
 
-        return self.temperature_celsius
+    def get_temperature_fahrenheit(self):
+        self.temperature_fahrenheit = self.get_temperature_from_humidity() * 9.0/5.0 + 32
+        
+        return self.temperature_fahrenheit
+
 
     def get_magnetic_field(self):
         #dict of magnetic field vectors in microteslas

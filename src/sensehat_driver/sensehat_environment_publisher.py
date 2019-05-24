@@ -3,6 +3,7 @@
 import rospy
 from sensehat_api import SenseHatAPI
 from sensor_msgs.msg import MagneticField, Temperature, FluidPressure, RelativeHumidity
+from std_msgs.msg import Float64
 
 class SenseHatEnvironmentPublisher:
 
@@ -18,6 +19,7 @@ class SenseHatEnvironmentPublisher:
         #initialize publishers
         self.magnetic_field_pub = rospy.Publisher("magnetic_field", MagneticField, queue_size=5)
         self.temperature_celsius_pub = rospy.Publisher("temperature_celsius", Temperature, queue_size=5)
+        self.temperature_fahrenheit_pub = rospy.Publisher("temperature_fahrenheit", Float64, queue_size=5)
         self.air_pressure_pub = rospy.Publisher("air_pressure", FluidPressure, queue_size=5)
         self.relative_humidity_pub = rospy.Publisher("relative_humidity", RelativeHumidity, queue_size=5)
     
@@ -25,6 +27,7 @@ class SenseHatEnvironmentPublisher:
         #retrieve sensehat data
         self.magnetic_field = self.sensehat_api.get_magnetic_field()
         self.temperature_celsius = self.sensehat_api.get_temperature_celsius()
+        self.temperature_fahrenheit = self.sensehat_api.get_temperature_fahrenheit()
         self.air_pressure = self.sensehat_api.get_air_pressure()
         self.relative_humidity = self.sensehat_api.get_relative_humidity()
 
@@ -34,6 +37,7 @@ class SenseHatEnvironmentPublisher:
         self.magnetic_field_msg.magnetic_field.z = self.magnetic_field["z"]
 
         self.temperature_celsius_msg.temperature = self.temperature_celsius
+        self.temperature_fahrenheit_msg = self.temperature_fahrenheit
 
         self.air_pressure_msg.fluid_pressure = self.air_pressure
 
@@ -42,6 +46,7 @@ class SenseHatEnvironmentPublisher:
         #publish messages
         self.magnetic_field_pub.publish(self.magnetic_field_msg)
         self.temperature_celsius_pub.publish(self.temperature_celsius_msg)
+        self.temperature_fahrenheit_pub.publish(self.temperature_fahrenheit_msg)
         self.air_pressure_pub.publish(self.air_pressure_msg)
         self.relative_humidity_pub.publish(self.relative_humidity_msg)
        

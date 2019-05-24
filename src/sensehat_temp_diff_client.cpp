@@ -14,6 +14,7 @@ int main(int argc, char* argv[]) {
 	ros::ServiceClient client = n.serviceClient<sensehat_driver::TemperatureDifference>("calc_temp_diff");
 
 	sensehat_driver::TemperatureDifference service;
+	//get input temperature from command line arg
 	service.request.input_temp = atof(argv[1]);
 	
 	//call service
