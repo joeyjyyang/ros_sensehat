@@ -14,7 +14,7 @@ def calc_temp_diff_server():
     service = rospy.Service("calc_temp_diff", TemperatureDifference, handle_calc_temp_diff)
     rospy.loginfo("Starting ROS service: sensehat_driver calc_temp_diff")
     
-    rospy.Subscriber("temperature_celsius"
+    #rospy.Subscriber("temperature_celsius", 
     
     rospy.spin()
 
