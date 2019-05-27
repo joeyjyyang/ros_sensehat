@@ -55,10 +55,9 @@ add_message_files(
 )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-   FILES
-   TemperatureDifference.srv
-)
+# add_service_files(
+#   FILES
+#)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -153,10 +152,6 @@ add_library(${PROJECT_NAME}
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(sensehat_temp_diff_client src/sensehat_temp_diff_client.cpp)
-target_link_libraries(sensehat_temp_diff_client ${catkin_LIBRARIES})
-add_dependencies(sensehat_temp_diff_client sensehat_driver_gencpp)
-
 add_executable(sensehat_imu_subscriber_node src/sensehat_imu_subscriber_node.cpp src/sensehat_imu_subscriber.cpp)
 target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
 
@@ -172,7 +167,6 @@ target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
 install(PROGRAMS
    scripts/sensehat_imu_publisher_node
    scripts/sensehat_compass_display
-   scripts/sensheat_temp_diff_server
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
