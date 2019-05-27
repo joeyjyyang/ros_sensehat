@@ -1,6 +1,8 @@
 # sensehat_driver
 **A ROS driver for the Raspberry Pi Sense HAT**
 ## Overview
+## Sense HAT Setup 
+- The Sense HAT installation and calibration instructions can be found [here](https://www.raspberrypi.org/documentation/hardware/sense-hat/)
 ## Installation
 ## Usage
 ### Nodes
