@@ -6,9 +6,14 @@
 ## Installation
 ## Usage
 ### Nodes
-- IMU sensors
-- Environment sensors
-- Compass (heading) display
+#### Publishers
+- Generic 9-DoF IMU data
+- Readings from environmental sensors 
+#### Subscribers
+- Generic 9-DoF IMU data
+- Compass display based on heading/yaw
 ### Launch Files
+- Compass display and log IMU data 
+- Log environmental data
 ## References
 - The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
