@@ -5,7 +5,7 @@ from sensehat_driver import sensehat_imu_publisher
 
 if __name__ == '__main__':
     
-    rospy.init_node("sensehat_imu_publisher_node", anonymous=True)
+    rospy.init_node("sensehat_imu_publisher_node")
     
     sensehat_imu_pub = sensehat_imu_publisher.SenseHatIMUPublisher()
     
