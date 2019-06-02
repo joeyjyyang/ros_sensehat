@@ -50,8 +50,9 @@ catkin_python_setup()
 
 ## Generate messages in the 'msg' folder
 add_message_files(
-  FILES
+  FILES	
   IMUOrientationEuler.msg
+  TemperatureFahrenheit.msg 
 )
 
 ## Generate services in the 'srv' folder
@@ -124,7 +125,7 @@ include_directories(
 add_library(${PROJECT_NAME}
 #src/${PROJECT_NAME}/sensehat_imu_subscriber.cpp
 #src/${PROJECT_NAME}/sensehat_imu_roscpp_node.cpp
-	src/sensehat_imu_subscriber.cpp
+  src/sensehat_imu_subscriber.cpp
 )
 
 ## Add cmake target dependencies of the library
@@ -165,23 +166,23 @@ target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 install(PROGRAMS
-   scripts/sensehat_imu_publisher_node
-   scripts/sensehat_compass_display
-   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  scripts/sensehat_imu_publisher_node
+  scripts/sensehat_compass_display
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark executables and/or libraries for installation
 install(TARGETS ${PROJECT_NAME} 
-   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
-   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-   FILES_MATCHING PATTERN "*.h"
-   PATTERN ".svn" EXCLUDE
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE
 )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
