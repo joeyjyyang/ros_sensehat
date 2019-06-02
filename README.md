@@ -20,6 +20,7 @@
 - sensehat_driver/IMUOrientationEuler
 - sensor_msgs/RelativeHumidity
 - sensor_msgs/Temperature
+- sensehat_driver/TemperatureFahrenheit
 ### Nodes
 #### Publishers
 - Generic 9-DoF IMU data
