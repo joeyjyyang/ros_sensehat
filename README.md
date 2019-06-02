@@ -1,7 +1,7 @@
 # sensehat_driver
 **A ROS driver for the Raspberry Pi Sense HAT**
 ## Overview
-The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi. It is equipped with a multitude of useful sensors including a 9-DoF IMU and various environmental sensors, which makes it an ideal asset for personal robotic projects. This ROS package provides an interface to access the functionalities of the board, and includes a set of ROS nodes and launch files to immediately extract sensor data.
+The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi. It is equipped with a multitude of useful sensors including a 9-DoF IMU and various environmental sensors, which makes it an ideal asset for personal robotic projects. This ROS package provides an interface to access the functionalities of the board, and includes a set of ROS nodes and launch files to immediately start extracting sensor data.
 ## Sense HAT Setup 
 - The Sense HAT installation and calibration instructions can be found [here](https://www.raspberrypi.org/documentation/hardware/sense-hat/).
 ## Installation
