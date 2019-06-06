@@ -14,6 +14,7 @@ catkin_python_setup()
 add_message_files(
   FILES
   IMUOrientationEuler.msg
+  TemperatureFahrenheit.msg
 )
 
 add_service_files(
