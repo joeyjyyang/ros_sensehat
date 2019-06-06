@@ -3,7 +3,7 @@
 import rospy
 from sensehat_api import SenseHatAPI
 from sensor_msgs.msg import MagneticField, Temperature, FluidPressure, RelativeHumidity
-from std_msgs.msg import Float64
+from sensehat_driver.msg import TemperatureFahrenheit
 
 class SenseHatEnvironmentPublisher:
 
@@ -13,13 +13,14 @@ class SenseHatEnvironmentPublisher:
         #initialize messages
         self.magnetic_field_msg = MagneticField()
         self.temperature_celsius_msg = Temperature()
+        self.temperature_fahrenheit_msg = TemperatureFahrenheit()
         self.air_pressure_msg = FluidPressure()
         self.relative_humidity_msg = RelativeHumidity()
         
         #initialize publishers
         self.magnetic_field_pub = rospy.Publisher("magnetic_field", MagneticField, queue_size=5)
         self.temperature_celsius_pub = rospy.Publisher("temperature_celsius", Temperature, queue_size=5)
-        self.temperature_fahrenheit_pub = rospy.Publisher("temperature_fahrenheit", Float64, queue_size=5)
+        self.temperature_fahrenheit_pub = rospy.Publisher("temperature_fahrenheit", TemperatureFahrenheit, queue_size=5)
         self.air_pressure_pub = rospy.Publisher("air_pressure", FluidPressure, queue_size=5)
         self.relative_humidity_pub = rospy.Publisher("relative_humidity", RelativeHumidity, queue_size=5)
     
@@ -37,7 +38,7 @@ class SenseHatEnvironmentPublisher:
         self.magnetic_field_msg.magnetic_field.z = self.magnetic_field["z"]
 
         self.temperature_celsius_msg.temperature = self.temperature_celsius
-        self.temperature_fahrenheit_msg = self.temperature_fahrenheit
+        self.temperature_fahrenheit_msg.temperature = self.temperature_fahrenheit
 
         self.air_pressure_msg.fluid_pressure = self.air_pressure
 

@@ -30,10 +30,10 @@ class SenseHatIMUPublisher:
         self.imu_orientation_euler_msg.roll = self.orientation_euler["roll"]
         self.imu_orientation_euler_msg.yaw = self.orientation_euler["yaw"]
  
-        self.imu_orientation_quaternion_msg.orientation.x = self.orientation_quaternion.quaternion_x
-        self.imu_orientation_quaternion_msg.orientation.y = self.orientation_quaternion.quaternion_y
-        self.imu_orientation_quaternion_msg.orientation.z = self.orientation_quaternion.quaternion_z
-        self.imu_orientation_quaternion_msg.orientation.w = self.orientation_quaternion.quaternion_w
+        self.imu_orientation_quaternion_msg.orientation.x = self.orientation_quaternion["x"]
+        self.imu_orientation_quaternion_msg.orientation.y = self.orientation_quaternion["y"]
+        self.imu_orientation_quaternion_msg.orientation.z = self.orientation_quaternion["z"]
+        self.imu_orientation_quaternion_msg.orientation.w = self.orientation_quaternion["w"]
         self.imu_orientation_quaternion_msg.angular_velocity.x = self.angular_velocity["x"]
         self.imu_orientation_quaternion_msg.angular_velocity.y = self.angular_velocity["y"]
         self.imu_orientation_quaternion_msg.angular_velocity.z = self.angular_velocity["z"]

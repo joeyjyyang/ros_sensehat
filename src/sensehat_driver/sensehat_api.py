@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import math
-from sensehat_quaternion import Quaternion
 from sense_hat import SenseHat
 
 class SenseHatAPI(SenseHat): 
@@ -31,14 +30,14 @@ class SenseHatAPI(SenseHat):
         sin_pitch = math.sin(pitch * 0.5)
         cos_roll = math.cos(roll * 0.5)
         sin_roll = math.sin(roll * 0.5)
-        
-        quaternion_x = cos_yaw * cos_pitch * sin_roll - sin_yaw * sin_pitch * cos_roll
-        quaternion_y = sin_yaw * cos_pitch * sin_roll + cos_yaw * sin_pitch * cos_roll 
-        quaternion_z = sin_yaw * cos_pitch * cos_roll - cos_yaw * sin_pitch * sin_roll 
-        quaternion_w = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
+       
+        self.orientation_quaternion = dict()
 
-        self.orientation_quaternion = Quaternion(quaternion_x, quaternion_y, quaternion_z, quaternion_w)
-        
+        self.orientation_quaternion["x"] = cos_yaw * cos_pitch * sin_roll - sin_yaw * sin_pitch * cos_roll
+        self.orientation_quaternion["y"] = sin_yaw * cos_pitch * sin_roll + cos_yaw * sin_pitch * cos_roll 
+        self.orientation_quaternion["z"] = sin_yaw * cos_pitch * cos_roll - cos_yaw * sin_pitch * sin_roll 
+        self.orientation_quaternion["w"] = cos_yaw * cos_pitch * cos_roll + sin_yaw * sin_pitch * sin_roll
+
         return self.orientation_quaternion
 
     def get_angular_velocity(self):

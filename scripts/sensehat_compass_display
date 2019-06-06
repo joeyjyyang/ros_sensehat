@@ -5,10 +5,7 @@ from sensehat_driver.msg import IMUOrientationEuler
 from sense_hat import SenseHat
 from sensor_msgs.msg import Imu
 
-def heading_correction_handler(req):
-    print("Returning %s" % req.a)
-    
-def compass_callback(data):
+def display_compass(data):
     if (45 <= data.yaw < 135):
         sense.show_letter("E")
     elif (135 <= data.yaw < 225):
@@ -19,11 +16,11 @@ def compass_callback(data):
         sense.show_letter("N")
 
 def subscribe_imu_data():
-    rospy.Subscriber("imu_orientation_euler", IMUOrientationEuler, compass_callback)
+    rospy.Subscriber("imu_orientation_euler", IMUOrientationEuler, display_compass)
     rospy.spin()
 
 if __name__ == '__main__':
-    rospy.init_node("sensehat_compass_display", anonymous=True) 
+    rospy.init_node("sensehat_compass_display") 
     sense = SenseHat()
     sense.clear()
     subscribe_imu_data()
