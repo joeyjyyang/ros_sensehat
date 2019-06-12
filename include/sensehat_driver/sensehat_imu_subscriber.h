@@ -12,7 +12,7 @@ namespace sensehat_imu
 class SenseHatIMUSubscriber 
 {
 public:
-	SenseHatIMUSubscriber(const ros::NodeHandle& nh);
+	explicit SenseHatIMUSubscriber(const ros::NodeHandle& nh);
 	
 	void IMUCallback(const sensor_msgs::Imu::ConstPtr& imu_msg);
 
