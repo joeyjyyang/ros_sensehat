@@ -28,7 +28,7 @@ roslaunch sensehat_driver sensehat_imu_compass.launch
 - sensehat_imu_subscriber_node.cpp
 ### Launch Files
 - sensehat_imu_compass.launch
-	- Publishes 9-DoF IMU data and displays the onboard compass based on hedaing (yaw) readings. Also runs the generic subscriber which logs orientation in quaternions.
+	- Publishes 9-DoF IMU data and displays the onboard compass based on heading (yaw) readings. Also runs the generic subscriber which logs orientation in quaternions.
 - sensehat_environment.launch
 	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
 ### Topics
