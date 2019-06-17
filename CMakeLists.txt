@@ -51,7 +51,7 @@ target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
 install(PROGRAMS
    scripts/sensehat_imu_publisher_node
    scripts/sensehat_compass_display
-   scripts/sensheat_temp_diff_server
+   scripts/sensehat_temp_diff_server
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
