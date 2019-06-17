@@ -21,14 +21,16 @@ roslaunch sensehat_driver sensehat_imu_compass.launch
 ## Contents
 ### Nodes
 #### Publishers
-- Generic 9-DoF IMU data
-- Readings from environmental sensors 
+- sensehat_imu_publisher_node(.py)
+- sensehat_environment_publisher_node(.py)
+- sensehat_compass_display(.py)
 #### Subscribers
-- Generic 9-DoF IMU data
-- Compass display based on heading/yaw
+- sensehat_imu_subscriber_node.cpp
 ### Launch Files
-- Compass display and log IMU data 
-- Log environmental data
+- sensehat_imu_compass.launch
+	- Publishes 9-DoF IMU data and displays the onboard compass based on hedaing (yaw) readings. Also runs the generic subscriber which logs orientation in quaternions.
+- sensehat_environment.launch
+	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
 ### Topics
 - /air_pressure
 - /magnetic_field
