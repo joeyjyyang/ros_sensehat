@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 int main(int argc, char* argv[]) {
-	ros::init(argc, argv, "calc_temp_diff_client");
+	ros::init(argc, argv, "sensehat_temp_diff_client");
 
 	if (argc != 2) {
 		ROS_INFO("Usage: rosrun sensehat_driver calc_temp_diff_client input_temp ");
