@@ -2,7 +2,7 @@
 <launch>
 
 	<node name="sensehat_environment_publisher_node" pkg="sensehat_driver" type="sensehat_environment_publisher_node" output="screen">
-		<param name="spin_rate" type="double" value="30.0 />
+		<param name="spin_rate" type="double" value="30.0" />
 	</node>
 		
 </launch>

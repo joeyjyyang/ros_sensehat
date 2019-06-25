@@ -3,6 +3,7 @@
 
 	<node name="sensehat_imu_publisher_node" pkg="sensehat_driver" type="sensehat_imu_publisher_node" output="screen">
 		<param name="spin_rate" type="double" value="30.0" />
+	</node>
 
 	<node name="sensehat_compass_display" pkg="sensehat_driver" type="sensehat_compass_display" output="screen">
 		<rosparam>
