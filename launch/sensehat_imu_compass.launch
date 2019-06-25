@@ -1,9 +1,17 @@
 <?xml version="1.0"?>
 <launch>
 
-	<node name="sensehat_imu_publisher_node" pkg="sensehat_driver" type="sensehat_imu_publisher_node" output="screen" />
+	<node name="sensehat_imu_publisher_node" pkg="sensehat_driver" type="sensehat_imu_publisher_node" output="screen">
+		<param name="spin_rate" type="double" value="30.0" />
 
-	<node name="sensehat_compass_display" pkg="sensehat_driver" type="sensehat_compass_display" output="screen" />
+	<node name="sensehat_compass_display" pkg="sensehat_driver" type="sensehat_compass_display" output="screen">
+		<rosparam>
+			NE_angle: 45.0
+			SE_angle: 135.0
+			SW_angle: 225.0
+			NW_angle: 315.0
+		</rosparam>
+	</node>
 
 	<node name="sensehat_imu_subscriber_node" pkg="sensehat_driver" type="sensehat_imu_subscriber_node" output="screen" />
 
