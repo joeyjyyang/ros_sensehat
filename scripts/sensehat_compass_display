@@ -16,20 +16,18 @@ def display_compass(data, compass_angles):
     else:
         sense.show_letter("N")
 
-def subscribe_imu_data():
+if __name__ == '__main__':
+    sense = SenseHat()
+    sense.clear()
+
+    rospy.init_node("sensehat_compass_display") 
+    
     NE_angle_param = rospy.get_param("~NE_angle")
     SE_angle_param = rospy.get_param("~SE_angle")
     SW_angle_param = rospy.get_param("~SW_angle")
     NW_angle_param = rospy.get_param("~NW_angle")
-
+    
     rospy.Subscriber("imu_orientation_euler", IMUOrientationEuler, display_compass, (NE_angle_param, SE_angle_param, SW_angle_param, NW_angle_param))
     rospy.spin()
 
-if __name__ == '__main__':
-   rospy.init_node("sensehat_compass_display") 
-    sense = SenseHat()
-    sense.clear()
-    subscribe_imu_data()
-
-    
 
