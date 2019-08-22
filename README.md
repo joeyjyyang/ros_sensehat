@@ -9,7 +9,7 @@ The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi
 ```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-git clone -b kinetic-devel https://github.com/joeyjyyang/sensehat_driver.git
+git clone --single-branch --branch kinetic-devel https://github.com/joeyjyyang/sensehat_driver.git #kinetic-devel (default branch)
 cd .. 
 catkin build sensehat_driver
 source devel/setup.bash
