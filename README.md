@@ -22,7 +22,7 @@ roslaunch sensehat_driver sensehat_compass_display.launch
 ### Nodes 
 **Publishers, subscribers, servers, and clients.**
 - sensehat_imu_publisher_node(.py)
-	- Publishes orientation (in euler angles and quaternions) from 9-DoF IMU data. 
+	- Publishes orientation (in euler angles and quaternions) data from 9-DoF IMU sensors. 
 - sensehat_environment_publisher_node(.py)
 	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
 - sensehat_compass_display(.py)
@@ -30,7 +30,7 @@ roslaunch sensehat_driver sensehat_compass_display.launch
 - sensehat_temp_diff_server(.py)
 	- Server to the calc_temp_diff service.
 - sensehat_imu_subscriber_node(.cpp)
-	- Generic/template subscriber to orientation from 9-DoF IMU data.
+	- Generic/template subscriber to orientation data from 9-DoF IMU data sensors.
 - sensehat_temp_diff_client(.cpp)
 	- Client of the calc_temp_diff service.
 ### Services
@@ -60,3 +60,9 @@ roslaunch sensehat_driver sensehat_compass_display.launch
 ## References
 - The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
 - The sensor_msgs Msg/Srv Documentation can be found [here](http://docs.ros.org/kinetic/api/sensor_msgs/html/index-msg.html).
+## Contact
+- ROS package author and maintainer: Joey Yang
+- Email: joeyyang.ai@gmail.com
+- GitHub: https://github.com/joeyjyyang
+- LinkedIn: https://www.linkedin.com/in/joey-yang
+

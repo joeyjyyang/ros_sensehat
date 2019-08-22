@@ -10,7 +10,9 @@
   <license>BSD</license>
 
   <url type="website">https://joeyjyyang.github.io</url>
-  <url type="repository">https://github.com/joeyjyyang/skynet</url>
+  <url type="github">https://github.com/joeyjyyang</url>
+  <url type="repository">https://github.com/joeyjyyang/sensehat_driver</url>
+  <url type="linkedin">https://www.linkedin.com/in/joey-yang</url>
   
   <buildtool_depend>catkin</buildtool_depend>
 
