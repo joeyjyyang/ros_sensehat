@@ -22,18 +22,25 @@ roslaunch sensehat_driver sensehat_imu_compass.launch
 ### Nodes 
 **Publishers, subscribers, servers, and clients.**
 - sensehat_imu_publisher_node(.py)
+	- Publishes orientation (in euler angles and quaternions) from 9-DoF IMU data. 
 - sensehat_environment_publisher_node(.py)
+	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
 - sensehat_compass_display(.py)
+	- Displays current compass direction on LED grid based on heading/yaw readings.
 - sensehat_temp_diff_server(.py)
+	- Server to the calc_temp_diff service.
 - sensehat_imu_subscriber_node(.cpp)
+	- Generic subcriber to orientation from 9-DoF IMU data.
 - sensehat_temp_diff_client(.cpp)
+	- Client of the calc_temp_diff service.
 ### Services
 - calc_temp_diff
+	- Determines and logs the temperature difference (in celsius) between the user-input temperature and the current measured temperature.
 ### Launch Files
-- sensehat_imu_compass.launch
-	- Publishes 9-DoF IMU data and displays the onboard compass based on heading (yaw) readings. Also runs the generic subscriber which logs orientation in quaternions.
+- sensehat_generic_imu.launch
+- sensehat_compass_display.launch
 - sensehat_environment.launch
-	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
+- sensehat_calc_temp_diff_service.launch
 ### Topics
 - /air_pressure
 - /magnetic_field
