@@ -16,7 +16,7 @@ source devel/setup.bash
 ```
 ### Example Usage
 ```
-roslaunch sensehat_driver sensehat_imu_compass.launch
+roslaunch sensehat_driver sensehat_compass_display.launch
 ```
 ## Contents
 ### Nodes 
@@ -30,12 +30,12 @@ roslaunch sensehat_driver sensehat_imu_compass.launch
 - sensehat_temp_diff_server(.py)
 	- Server to the calc_temp_diff service.
 - sensehat_imu_subscriber_node(.cpp)
-	- Generic subcriber to orientation from 9-DoF IMU data.
+	- Generic/template subscriber to orientation from 9-DoF IMU data.
 - sensehat_temp_diff_client(.cpp)
 	- Client of the calc_temp_diff service.
 ### Services
 - calc_temp_diff
-	- Determines and logs the temperature difference (in celsius) between the user-input temperature and the current measured temperature.
+	- Calculates (and outputs) the temperature difference (in celsius) between the user-input temperature and the current measured temperature.
 ### Launch Files
 - sensehat_generic_imu.launch
 - sensehat_compass_display.launch
