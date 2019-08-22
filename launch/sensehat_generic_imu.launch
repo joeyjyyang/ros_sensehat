@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+	
+  <node name="sensehat_imu_publisher_node" pkg="sensehat_driver" type="sensehat_imu_publisher_node" output="screen">
+    <param name="spin_rate" type="double" value="30.0" />
+  </node>
+
+  <node name="sensehat_imu_subscriber_node" pkg="sensehat_driver" type="sensehat_imu_subscriber_node" output="screen" />
+
+</launch>

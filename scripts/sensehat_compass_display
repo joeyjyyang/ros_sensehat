@@ -4,7 +4,6 @@ import rospy
 from sensehat_driver.msg import IMUOrientationEuler
 from sense_hat import SenseHat
 from sensor_msgs.msg import Imu
-import math
 
 def display_compass(data, compass_angles):
     if (compass_angles[0] <= data.yaw < compass_angles[1]):
