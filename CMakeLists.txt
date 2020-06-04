@@ -43,7 +43,7 @@ add_library(${PROJECT_NAME}
 
 add_executable(sensehat_temp_diff_client src/sensehat_temp_diff_client.cpp)
 target_link_libraries(sensehat_temp_diff_client ${catkin_LIBRARIES})
-add_dependencies(sensehat_temp_diff_client sensehat_driver_gencpp)
+add_dependencies(sensehat_temp_diff_client sensehat_driver_generate_messages_cpp)
 
 add_executable(sensehat_imu_subscriber_node src/sensehat_imu_subscriber_node.cpp src/sensehat_imu_subscriber.cpp)
 target_link_libraries(sensehat_imu_subscriber_node ${catkin_LIBRARIES})
