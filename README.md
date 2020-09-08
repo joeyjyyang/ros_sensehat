@@ -74,7 +74,7 @@ rospack profile
 - The sensor_msgs Msg/Srv Documentation can be found [here](http://docs.ros.org/kinetic/api/sensor_msgs/html/index-msg.html).
 
 ## Contact
-- ROS package author and maintainer: Joey Yang
+- Author and Maintainer: Joey Yang
 - Email: joeyyang.ai@gmail.com
 - GitHub: https://github.com/joeyjyyang
 - LinkedIn: https://www.linkedin.com/in/joey-yang
