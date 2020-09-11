@@ -1,8 +1,8 @@
 # sensehat_driver
-**A ROS driver for the Raspberry Pi Sense HAT.**
+**A ROS package containing a hardware driver for the Raspberry Pi Sense HAT and multiple ROS node wrappers that expose the sensor driver to the ROS ecosystem.**
 
 ## Overview
-The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi. It is equipped with a multitude of useful sensors including a 9-DoF IMU and various environmental sensors, which makes it an ideal asset for personal robotic projects. This ROS package provides an interface to access the functionalities of the Sense HAT add-on board, and includes a set of ROS nodes and launch files to immediately start extracting sensor data.
+The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi. It is equipped with a multitude of useful sensors including a 9-DoF IMU and various environmental sensors, which makes it an ideal asset for personal robotic projects. This ROS package provides a ROS-agnostic hardware driver intreface to access the functionalities of the Sense HAT add-on board, and includes a set of ROS nodes that wrap around the driver and connects the sensor data to ROS topics.
 
 ## Prerequisites
 ### Software
@@ -36,16 +36,6 @@ rospack profile
 	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
 - `sensehat_compass_display(.py)`
 	- Displays current compass direction on LED grid based on heading/yaw readings.
-- `sensehat_temp_diff_server(.py)`
-	- Server to the calc_temp_diff service.
-- `sensehat_imu_subscriber_node(.cpp)`
-	- Generic/template subscriber to orientation data from 9-DoF IMU data sensors.
-- `sensehat_temp_diff_client(.cpp)`
-	- Client of the calc_temp_diff service.
-
-## Services
-- `calc_temp_diff`
-	- Calculates (and outputs) the temperature difference (in celsius) between the user-input temperature and the current measured temperature.
 
 ## Topics
 - `/air_pressure`
@@ -54,7 +44,6 @@ rospack profile
 - `/imu_orientation_quaternion`
 - `/relative_humidity`
 - `/temperature_celsius`
-- `/temperature_fahrenheit`
 
 ## Messages
 - `sensor_msgs/FluidPressure`
@@ -63,7 +52,6 @@ rospack profile
 - `sensehat_driver/IMUOrientationEuler`
 - `sensor_msgs/RelativeHumidity`
 - `sensor_msgs/Temperature`
-- `sensehat_driver/TemperatureFahrenheit`
 
 ## Usage
 ### Example
