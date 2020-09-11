@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 import rospy
-from sensehat_api import SenseHatAPI
+from sensehat_driver import SenseHatDriver
 from sensehat_driver.msg import IMUOrientationEuler 
 from sensor_msgs.msg import Imu
 
 class SenseHatIMUPublisher:
 
     def __init__(self):
-        self.sensehat_api = SenseHatAPI()
+        self.sensehat_driver = SenseHatDriver()
         
         #initialize messages
         self.imu_orientation_euler_msg = IMUOrientationEuler()
@@ -20,10 +20,10 @@ class SenseHatIMUPublisher:
     
     def publish_imu_data(self):
         #retrieve sensehat data
-        self.orientation_euler = self.sensehat_api.get_orientation_degrees()
-        self.orientation_quaternion = self.sensehat_api.get_orientation_quaternion()
-        self.angular_velocity = self.sensehat_api.get_angular_velocity()
-        self.linear_acceleration = self.sensehat_api.get_linear_acceleration()
+        self.orientation_euler = self.sensehat_driver.get_orientation_degrees()
+        self.orientation_quaternion = self.sensehat_driver.get_orientation_quaternion()
+        self.angular_velocity = self.sensehat_driver.get_angular_velocity()
+        self.linear_acceleration = self.sensehat_driver.get_linear_acceleration()
 
         #populate messages
         self.imu_orientation_euler_msg.pitch = self.orientation_euler["pitch"]

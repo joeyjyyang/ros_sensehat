@@ -3,12 +3,12 @@
 import math
 from sense_hat import SenseHat
 
-class SenseHatAPI(SenseHat): 
+class SenseHatDriver(SenseHat): 
 
     GRAVITY = 9.80665
 
     def __init__(self):
-        super(SenseHatAPI, self).__init__()
+        super(SenseHatDriver, self).__init__()
 
     def get_orientation_quaternion(self):
         #enable all (3) IMU sensors 
@@ -53,7 +53,7 @@ class SenseHatAPI(SenseHat):
         self.linear_acceleration = dict()
 
         for axis, lin_accel_g in self.linear_acceleration_g.items():
-            self.linear_acceleration[axis] = lin_accel_g * SenseHatAPI.GRAVITY
+            self.linear_acceleration[axis] = lin_accel_g * SenseHatDriver.GRAVITY
         
         return self.linear_acceleration
 
@@ -66,12 +66,6 @@ class SenseHatAPI(SenseHat):
         self.temperature_celsius = self.get_temperature_from_humidity() #self.get_temperature_from_pressure()
         
         return self.temperature
-
-    def get_temperature_fahrenheit(self):
-        self.temperature_fahrenheit = self.get_temperature_from_humidity() * 9.0/5.0 + 32
-        
-        return self.temperature_fahrenheit
-
 
     def get_magnetic_field(self):
         #dict of magnetic field vectors in microteslas

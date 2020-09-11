@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-	<node name="sensehat_temp_diff_server" pkg="sensehat_driver" type="sensehat_temp_diff_server" output="screen" />
-
-</launch>
