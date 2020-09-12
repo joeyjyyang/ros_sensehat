@@ -16,10 +16,10 @@ class SenseHatEnvironmentPublisher:
         self.relative_humidity_msg = RelativeHumidity()
         
         #initialize publishers
-        self.magnetic_field_pub = rospy.Publisher("magnetic_field", MagneticField, queue_size=5)
-        self.temperature_celsius_pub = rospy.Publisher("temperature_celsius", Temperature, queue_size=5)
-        self.air_pressure_pub = rospy.Publisher("air_pressure", FluidPressure, queue_size=5)
-        self.relative_humidity_pub = rospy.Publisher("relative_humidity", RelativeHumidity, queue_size=5)
+        self.magnetic_field_pub = rospy.Publisher("magnetic_field", MagneticField, queue_size=1)
+        self.temperature_celsius_pub = rospy.Publisher("temperature_celsius", Temperature, queue_size=1)
+        self.air_pressure_pub = rospy.Publisher("air_pressure", FluidPressure, queue_size=1)
+        self.relative_humidity_pub = rospy.Publisher("relative_humidity", RelativeHumidity, queue_size=1)
     
     def publish_environment_data(self):
         #retrieve sensehat data
