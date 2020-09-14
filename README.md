@@ -55,7 +55,7 @@ rospack profile
 
 ## Usage
 ### Example
-- `roslaunch sensehat_driver sensehat_compass_display.launch`
+- `roslaunch sensehat_driver sensehat_imu.launch`
 
 ## References
 - The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
