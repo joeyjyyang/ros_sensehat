@@ -25,8 +25,7 @@ catkin_package(
   CATKIN_DEPENDS rospy std_msgs message_runtime sensor_msgs
 )
 
-install(PROGRAMS
-   scripts/sensehat_imu_publisher_node
-   scripts/sensehat_compass_display
+install(
+   PROGRAMS scripts/sensehat_imu_publisher_node.py scripts/sensehat_compass_display_node.py scripts/sensehat_environment_publisher_node.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

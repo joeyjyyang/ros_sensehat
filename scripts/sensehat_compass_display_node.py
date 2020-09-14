@@ -19,7 +19,7 @@ if __name__ == '__main__':
     sense = SenseHat()
     sense.clear()
 
-    rospy.init_node("sensehat_compass_display") 
+    rospy.init_node("sensehat_compass_display_node") 
     
     NE_angle_param = rospy.get_param("~NE_angle")
     SE_angle_param = rospy.get_param("~SE_angle")
