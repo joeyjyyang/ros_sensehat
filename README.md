@@ -30,11 +30,11 @@ rospack profile
 ```
 
 ## Nodes 
-- `sensehat_imu_publisher_node(.py)`
+- `sensehat_imu_publisher_node`
 	- Publishes orientation (in euler angles and quaternions) data from 9-DoF IMU sensors. 
-- `sensehat_environment_publisher_node(.py)`
+- `sensehat_environment_publisher_node`
 	- Publishes data from environmental sensors, including temperature, relative humidity, pressure, and magnetic field vectors.
-- `sensehat_compass_display_node(.py)`
+- `sensehat_compass_display_node`
 	- Displays current compass direction on LED grid based on heading/yaw readings.
 
 ## Topics
