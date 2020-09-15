@@ -1,3 +1,10 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    ROS-agnostic hardware driver to interface the Sense HAT with the Raspberry Pi.
+'''
+
 #!/usr/bin/env python
 
 import math

@@ -1,3 +1,10 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    Interface between the Sense HAT's environment sensors and the ROS ecosystem.
+'''
+
 #!/usr/bin/env python
 
 import rospy

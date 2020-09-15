@@ -1,3 +1,9 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    ROS node that begins publishing environment sensor data.
+'''
 #!/usr/bin/env python
 
 import rospy

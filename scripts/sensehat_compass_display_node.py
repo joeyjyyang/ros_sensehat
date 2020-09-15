@@ -1,3 +1,10 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    ROS node that displays a letter (N, E, S, or W) representing the cardinal direction in whi    ch the Sense HAT is pointing towards, based on the Euler angle value of the yaw/heading.
+'''
+
 #!/usr/bin/env python
 
 import rospy

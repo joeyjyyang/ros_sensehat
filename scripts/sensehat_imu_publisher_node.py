@@ -1,3 +1,10 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    ROS node that begins publishing IMU data. 
+'''
+
 #!/usr/bin/env python
 
 import rospy

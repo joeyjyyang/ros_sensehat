@@ -1,3 +1,10 @@
+'''
+  Author: Joey Yang
+  Email: joeyyang.ai@gmail.com
+  Description: 
+    Interface between the Sense HAT's IMU and the ROS ecosystem.
+'''
+
 #!/usr/bin/env python
 
 import rospy
