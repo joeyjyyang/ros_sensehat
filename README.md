@@ -12,8 +12,6 @@ The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi
 ### Hardware
 - Raspberry Pi 4 Model B
 - Raspberry Pi Sense HAT
-### Sense HAT Setup 
-- The Sense HAT installation and calibration instructions can be found [here](https://www.raspberrypi.org/documentation/hardware/sense-hat/).
 
 ## Installation
 ### Install from Git Repository
@@ -28,6 +26,10 @@ catkin_make # catkin build sensehat_driver (if using catkin_tools)
 source devel/setup.bash
 rospack profile
 ```
+
+## Setup
+### Sense HAT Setup 
+- The Sense HAT installation and calibration instructions can be found [here](https://www.raspberrypi.org/documentation/hardware/sense-hat/).
 
 ## Nodes 
 - `sensehat_imu_publisher_node`
@@ -59,7 +61,6 @@ rospack profile
 
 ## References
 - The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
-- The sensor_msgs Msg/Srv Documentation can be found [here](http://docs.ros.org/kinetic/api/sensor_msgs/html/index-msg.html).
 
 ## Contact
 - Author and Maintainer: Joey Yang
