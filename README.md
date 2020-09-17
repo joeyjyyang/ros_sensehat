@@ -28,8 +28,8 @@ rospack profile
 ```
 
 ## Setup
-### Sense HAT Setup 
-- The Sense HAT installation and calibration instructions can be found [here](https://www.raspberrypi.org/documentation/hardware/sense-hat/).
+### Calibration
+- Sense HAT installation and calibration instructions: https://www.raspberrypi.org/documentation/hardware/sense-hat/
 
 ## Nodes 
 - `sensehat_imu_publisher_node`
@@ -58,9 +58,6 @@ rospack profile
 ## Usage
 ### Example
 - `roslaunch sensehat_driver sensehat_imu.launch`
-
-## References
-- The Sense HAT API Reference can be found [here](https://pythonhosted.org/sense-hat/api/).
 
 ## Contact
 - Author and Maintainer: Joey Yang
