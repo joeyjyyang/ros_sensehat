@@ -1,4 +1,4 @@
-# sensehat_driver
+# ros_sensehat
 **A ROS package containing a hardware driver for the Raspberry Pi Sense HAT and multiple ROS node wrappers that expose the sensor driver to the ROS ecosystem.**
 
 ## Overview
@@ -18,11 +18,11 @@ The Sense HAT is an affordable and easy-to-use add-on board for the Raspberry Pi
 ```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-git clone --single-branch --branch kinetic-devel https://github.com/joeyjyyang/sensehat_driver.git
+git clone --single-branch --branch kinetic-devel https://github.com/joeyjyyang/ros_sensehat.git
 cd .. 
 sudo apt-get install -y
 rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
-catkin_make # catkin build sensehat_driver (if using catkin_tools)
+catkin_make # catkin build ros_sensehat (if using catkin_tools)
 source devel/setup.bash
 rospack profile
 ```
@@ -57,7 +57,7 @@ rospack profile
 
 ## Usage
 ### Example
-- `roslaunch sensehat_driver sensehat_imu.launch`
+- `roslaunch ros_sensehat sensehat_imu.launch`
 
 ## Contact
 - Author and Maintainer: Joey Yang
