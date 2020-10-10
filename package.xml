@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>sensehat_driver</name>
+  <name>ros_sensehat</name>
   <version>0.0.0</version>
   <description>A ROS package containing a hardware driver for the Raspberry Pi Sense HAT and multiple ROS node wrappers that expose the sensor driver to the ROS ecosystem.</description>
 
