@@ -8,7 +8,7 @@
 #!/usr/bin/env python
 
 import rospy
-from sensehat_driver.msg import IMUOrientationEuler
+from sensehat_driver.msg import OrientationEuler
 from sense_hat import SenseHat
 from sensor_msgs.msg import Imu
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     SW_angle_param = rospy.get_param("~SW_angle")
     NW_angle_param = rospy.get_param("~NW_angle")
     
-    rospy.Subscriber("imu_orientation_euler", IMUOrientationEuler, display_compass, (NE_angle_param, SE_angle_param, SW_angle_param, NW_angle_param))
+    rospy.Subscriber("imu_orientation_euler", OrientationEuler, display_compass, (NE_angle_param, SE_angle_param, SW_angle_param, NW_angle_param))
     rospy.spin()
 
 

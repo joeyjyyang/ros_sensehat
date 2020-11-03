@@ -12,7 +12,7 @@ catkin_python_setup()
 
 add_message_files(
   FILES
-  IMUOrientationEuler.msg
+  OrientationEuler.msg
 )
 
 generate_messages(
