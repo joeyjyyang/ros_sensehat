@@ -32,7 +32,7 @@ class SenseHatEnvironmentPublisher:
         #retrieve sensehat data
         self.magnetic_field = self.sensehat_driver.get_magnetic_field()
         self.temperature_celsius = self.sensehat_driver.get_temperature_celsius()
-        self.air_pressure = self.sensehat_driver.get_air_pressure()
+        self.air_pressure = self.sensehat_driver.get_air_pressure() * 100.0
         self.relative_humidity = self.sensehat_driver.get_relative_humidity()
 
         #populate messages
